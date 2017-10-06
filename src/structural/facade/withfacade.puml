@@ -1,0 +1,19 @@
+@startuml
+
+class Checking
+class Saving
+class Investment
+class Customer
+class BankService
+interface IAccount
+
+Customer --> BankService
+BankService *-- "0..*" IAccount
+
+IAccount <|.. Checking
+IAccount <|.. Saving
+IAccount <|.. Investment
+
+
+
+@enduml

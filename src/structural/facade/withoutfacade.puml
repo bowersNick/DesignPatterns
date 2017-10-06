@@ -1,0 +1,18 @@
+@startuml
+
+class Checking
+class Saving
+class Investment
+class Customer
+interface IAccount
+
+IAccount <|.. Checking
+IAccount <|.. Saving
+IAccount <|.. Investment
+
+Checking "0..*" --* Customer
+Saving "0..*" --* Customer
+Investment "0..*" --* Customer
+
+
+@enduml
