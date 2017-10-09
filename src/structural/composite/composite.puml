@@ -1,0 +1,18 @@
+@startuml
+
+interface IComponent {
+    public void operation()
+    }
+class Composite {
+    public void operation()
+}
+class Leaf {
+    public void operation()
+}
+
+IComponent <|.. Composite
+IComponent <|.. Leaf
+IComponent "0..*" --o Composite
+
+
+@enduml
