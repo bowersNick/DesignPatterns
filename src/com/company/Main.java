@@ -11,13 +11,17 @@ import structural.adapter.WebService;
 import structural.composite.Housing;
 import structural.composite.IStructure;
 import structural.composite.Room;
+import structural.decorator.AuthenticatedWebPage;
+import structural.decorator.AuthorizedWebPage;
+import structural.decorator.BasicWebPage;
+import structural.decorator.IWebPage;
 //import creational.factory.pattern.Store;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        // creational.factory.singleton testing
+        ///////// creational.factory.singleton testing
         Singleton testSingleton;
         Singleton testSingletonTwo;
 
@@ -26,7 +30,7 @@ public class Main {
         if (testSingleton == testSingletonTwo) {
             System.out.println("Singleton's are equal");
         }
-        // creational.factory object testing
+        /////// creational.factory object testing
         Store storeObject;
         FactoryObject factory = new FactoryObject();
         StoreStore newstore = new StoreStore(factory);
@@ -35,7 +39,7 @@ public class Main {
         SimpleStore concreteCreator = new SimpleStore();
         concreteCreator.orderStore("toys");
 
-        // adapter pattern
+        ///////// adapter pattern
         String webHost = "Host: https://google.com\n\r";
         WebService service = new WebService(webHost);
         WebAdapter adapter = new WebAdapter();
@@ -43,7 +47,7 @@ public class Main {
         WebClient client = new WebClient(adapter);
         client.doWork();
 
-        // composite pattern
+        ////////// composite pattern
         Housing building = new Housing("123 Street");
         Housing floor1 = new Housing("123 Street - First Floor");
         int firstFloor = building.addStructure(floor1);
@@ -67,5 +71,11 @@ public class Main {
         currentRoom = (Room)currentfloor.getStructure(firstCommon);
         currentRoom.enter(); // Walk into the common area
 
+        ////// Decorator Pattern
+
+        IWebPage myPage = new BasicWebPage();
+        myPage = new AuthorizedWebPage(myPage);
+        myPage = new AuthenticatedWebPage(myPage);
+        myPage.display();
     }
 }

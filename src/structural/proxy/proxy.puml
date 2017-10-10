@@ -1,0 +1,14 @@
+@startuml
+
+class Client
+interface Subject
+class Proxy
+class RealSubject
+
+Client ..> Subject
+Subject <|.. Proxy
+Subject <|.. RealSubject
+Proxy "Delegates to" --> RealSubject
+
+
+@enduml
