@@ -1,5 +1,8 @@
 package com.company;
 
+import behavioral.templatemethod.PastaDish;
+import behavioral.templatemethod.PenneAlfredo;
+import behavioral.templatemethod.SpaghettiMeatballs;
 import creational.factory.object.FactoryObject;
 import creational.factory.object.Store;
 import creational.factory.object.StoreStore;
@@ -34,7 +37,7 @@ public class Main {
         Store storeObject;
         FactoryObject factory = new FactoryObject();
         StoreStore newstore = new StoreStore(factory);
-        storeObject = newstore.orderStore("simple");
+        newstore.orderStore("simple");
 
         SimpleStore concreteCreator = new SimpleStore();
         concreteCreator.orderStore("toys");
@@ -77,5 +80,14 @@ public class Main {
         myPage = new AuthorizedWebPage(myPage);
         myPage = new AuthenticatedWebPage(myPage);
         myPage.display();
+
+        /////// Template method pattern
+        System.out.println("");
+        System.out.println("------------------------------------------");
+        PastaDish pasta = new SpaghettiMeatballs();
+        pasta.makeRecipe();
+        System.out.println("------------------------------------------");
+        pasta = new PenneAlfredo();
+        pasta.makeRecipe();
     }
 }
