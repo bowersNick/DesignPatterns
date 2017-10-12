@@ -1,5 +1,6 @@
 package com.company;
 
+import behavioral.state.VendingMachine;
 import behavioral.templatemethod.PastaDish;
 import behavioral.templatemethod.PenneAlfredo;
 import behavioral.templatemethod.SpaghettiMeatballs;
@@ -89,5 +90,23 @@ public class Main {
         System.out.println("------------------------------------------");
         pasta = new PenneAlfredo();
         pasta.makeRecipe();
+
+        ////// State pattern
+        VendingMachine vendingMachine = new VendingMachine(5);
+        vendingMachine.insertDollar();
+        vendingMachine.doReturnMoney();
+        vendingMachine.insertDollar();
+        vendingMachine.doReleaseProduct();
+        vendingMachine.doReturnMoney();
+        vendingMachine.insertDollar();
+        vendingMachine.doReleaseProduct();
+        vendingMachine.insertDollar();
+        vendingMachine.doReleaseProduct();
+        vendingMachine.insertDollar();
+        vendingMachine.doReleaseProduct();
+        vendingMachine.insertDollar();
+        vendingMachine.doReleaseProduct();
+        vendingMachine.insertDollar();
+        vendingMachine.doReleaseProduct();
     }
 }

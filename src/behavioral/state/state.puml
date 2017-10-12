@@ -1,0 +1,20 @@
+@startuml
+
+[*] --> Idle
+
+state Idle {
+  Idle --> Has_1_dollar : InsertDollar
+}
+
+state Has_1_dollar {
+    Has_1_dollar --> Idle : Eject Money / doReturnMoney
+    Has_1_dollar --> Idle: Dispense [count<1] / doReleaseProduct
+    Has_1_dollar --> Idle: Insert Dollar/doReturnMoney
+    Has_1_dollar --> Out_of_stock : Dispense [count==1] / doReleaseProduct
+}
+
+state Out_of_stock {
+  Out_of_stock --> Out_of_stock : Insert Dollar / doReturnMoney
+
+}
+@enduml

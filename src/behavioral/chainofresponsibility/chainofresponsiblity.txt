@@ -1,0 +1,9 @@
+There are issues with the Chain Of Responsibility pattern.  If one of the
+links does not pass to the next item of responsibility, then the pattern is broken.
+Some rules to follow when implementing this pattern:
+
+1) Check if rule matches
+2) If it matches, do something specific
+3) If it doesn't match, call the next filter in the list
+
+Can you the Template Pattern to try to keep to a specific method of functionality.

@@ -1,0 +1,33 @@
+@startuml
+
+class Context {
++ request()
+}
+interface State {
++ insertDollar()
++ ejectMoney()
++ dispense()
+}
+class IdleState {
++ insertDollar()
++ ejectMoney()
++ dispense()
+}
+class HasOneDollarState {
++ insertDollar()
++ ejectMoney()
++ dispense()
+}
+class OutOfStockState {
++ insertDollar()
++ ejectMoney()
++ dispense()
+}
+note bottom of Context : "state.handle()"
+
+Context o-- State
+
+State <|.. IdleState
+State <|.. HasOneDollarState
+State <|.. OutOfStockState
+@enduml
