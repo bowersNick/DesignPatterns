@@ -1,5 +1,6 @@
 package behavioral.command;
 
+// Receiver object
 public class Document {
     public Document() {
 
