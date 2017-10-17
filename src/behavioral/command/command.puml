@@ -1,0 +1,23 @@
+@startuml
+
+class Command {
++ execute()
++ unexecute()
++ isReversible(): boolean
+}
+
+class ConcreteCommand {
++ execute()
++ unexecute()
++ isReversible(): boolean
+}
+
+class Receiver {
++ action()
+}
+
+Invoker o-- Command
+Command <|-- ConcreteCommand
+Receiver --o ConcreteCommand
+
+@enduml
